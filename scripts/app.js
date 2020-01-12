@@ -22,14 +22,15 @@ function getMovie() {
 }
 
 function fetchAllMovie() {
-let div = document.getElementById('movie-append');
+
    for(let i = 0; i < movie.results.length; i++) {
-       let divInner = document.createElement('div');
-       divInner.classList.add('card');
-        var parag = document.createElement('p');
+        let div = document.getElementById('movie-append');
+        let divInner = document.createElement('div');
+        divInner.classList.add('card');
+        let parag = document.createElement('p');
         parag.classList.add('movieTitle');
-        var movieTitle = movie.results[i].title;
-        var movieReleaseDate = movie.results[i].release_date;
+        let movieTitle = movie.results[i].title;
+        let movieReleaseDate = movie.results[i].release_date;
         parag.textContent = movieTitle + '' + movieReleaseDate;
         let posterPath = movie.results[i].poster_path;
         let imgPoster = document.createElement('img');
@@ -37,7 +38,6 @@ let div = document.getElementById('movie-append');
         imgPoster.src = imgPath;
         divInner.appendChild(parag);
         divInner.appendChild(imgPoster);
-        
         div.appendChild(divInner);
         console.log(parag);
    }
