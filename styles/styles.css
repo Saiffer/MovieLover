@@ -1,4 +1,10 @@
 #movie-append {
     display: grid;
-    grid-template-columns: 200px 200px 200px 200px;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 2%;
+}
+
+.page-number {
+    width: 70px;
+    height: 30px;
 }
