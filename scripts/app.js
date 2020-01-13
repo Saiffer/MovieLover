@@ -5,7 +5,7 @@ let pageBtn = document.querySelectorAll('.page-number');
 let myKey = config.API_KEY;
 let movie;
 
-
+//Initial API call to get first 20 movies rendered on the page
 function getMovie() {
     let valueOfInput = userInput.value;
     let api = `https://api.themoviedb.org/3/search/movie?api_key=${myKey}&language=en-US&query=${valueOfInput}&page=1&include_adult=false`;
@@ -23,8 +23,8 @@ function getMovie() {
 }
 
 
+//Loop that saves 20 movies(maximum allowed) and creates html elements for them
 function fetchAllMovie() {
-
    for(let i = 0; i < movie.results.length; i++) {
         let div = document.getElementById('movie-append');
         let divInner = document.createElement('div');
@@ -56,11 +56,12 @@ function fetchAllMovie() {
         div.appendChild(divInner);
         
         console.log(parag);
-        console.log(div);
-        
+        console.log(div);   
    }
 }
 
+
+//Makes possible to replace movies on every search query
 function changeMovies() {
     let div = document.getElementById('movie-append');
     div.innerHTML = '';
@@ -69,6 +70,7 @@ function changeMovies() {
 }
 
 
+//Makes another API call to change page and render NEXT 20 movies
 let pageCount = 1;
 function nextPage() {
     valueOfInput = userInput.value;
@@ -89,6 +91,7 @@ function nextPage() {
 }
 }
 
+//Makes another API call to change page on previous and render PREVIOUS 20 movies
 function previousPage() {
     valueOfInput = userInput.value;
     if(pageCount > 1) {
@@ -108,6 +111,7 @@ function previousPage() {
 }
 }
 
+//Creating buttons for pagination NEXT and PREVIOUS
 function createButtons() {
     let div = document.getElementById('pages');
     let next = document.createElement('input');
