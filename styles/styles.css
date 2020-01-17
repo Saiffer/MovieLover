@@ -2,9 +2,19 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 2%;
+    margin: 0 auto;
+}
+
+.card {
+    margin: 0 auto;
+}
+
+.poster-image {
+    margin: 0 auto;
 }
 
 .page-number {
     width: 70px;
     height: 30px;
 }
+

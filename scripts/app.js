@@ -1,8 +1,8 @@
 /* jshint esversion: 6 */
-let submitBtn = document.querySelector('.submit-search-movie');
-let userInput = document.querySelector('.search-movie');
-let pageBtn = document.querySelectorAll('.page-number');
-let myKey = config.API_KEY;
+const submitBtn = document.querySelector('.submit-search-movie');
+const userInput = document.querySelector('.search-movie');
+const pageBtn = document.querySelectorAll('.page-number');
+const myKey = config.API_KEY;
 let movie;
 
 //Initial API call to get first 20 movies rendered on the page
@@ -26,20 +26,20 @@ function getMovie() {
 //Loop that saves 20 movies(maximum allowed) and creates html elements for them
 function fetchAllMovie() {
    for(let i = 0; i < movie.results.length; i++) {
-        let div = document.getElementById('movie-append');
-        let divInner = document.createElement('div');
-        let parag = document.createElement('p');
-        let movieTitle = movie.results[i].title;
-        let movieReleaseDate = movie.results[i].release_date;
-        let posterPath = movie.results[i].poster_path;
-        let movieVariable = movie.results[i].vote_average;
-        let imgPoster = document.createElement('img');
-        let imgPath = `http://image.tmdb.org/t/p/w200/${posterPath}`;
-        let movieRating = document.createElement('p');
+        const div = document.getElementById('movie-append');
+        const divInner = document.createElement('div');
+        const parag = document.createElement('p');
+        const movieTitle = movie.results[i].title;
+        const movieReleaseDate = movie.results[i].release_date;
+        const posterPath = movie.results[i].poster_path;
+        const movieVariable = movie.results[i].vote_average;
+        const imgPoster = document.createElement('img');
+        const imgPath = `http://image.tmdb.org/t/p/w200/${posterPath}`;
+        const movieRating = document.createElement('p');
         
         divInner.classList.add('card');
         parag.classList.add('movieTitle');
-        parag.textContent = `${movieTitle} ${movieReleaseDate}`;
+        parag.textContent = `${movieTitle}`;
         if(posterPath === null) {
             imgPoster.src = '../img/NoPosterAvailable_placeholder_160x220.png';
         } else {
@@ -47,7 +47,7 @@ function fetchAllMovie() {
             imgPoster.src = imgPath;
         }
         movieRating.classList.add('rating');
-        movieRating.textContent = `${movieVariable}`;
+        movieRating.textContent = `${movieVariable} ${movieReleaseDate}`;
 
 
         divInner.appendChild(parag);
@@ -63,7 +63,7 @@ function fetchAllMovie() {
 
 //Makes possible to replace movies on every search query
 function changeMovies() {
-    let div = document.getElementById('movie-append');
+    const div = document.getElementById('movie-append');
     div.innerHTML = '';
     
     fetchAllMovie();
@@ -113,9 +113,11 @@ function previousPage() {
 
 //Creating buttons for pagination NEXT and PREVIOUS
 function createButtons() {
-    let div = document.getElementById('pages');
-    let next = document.createElement('input');
-    let previous = document.createElement('input');
+    const div = document.getElementById('pages');
+    const next = document.createElement('input');
+    const previous = document.createElement('input');
+    next.classList.add('next-previous_button');
+    previous.classList.add('next-previous_button');
     next.type = 'button';
     previous.type = 'button';
     next.value = 'NEXT';
