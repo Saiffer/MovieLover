@@ -5,6 +5,7 @@ const pageBtn = document.querySelectorAll('.page-number');
 const myKey = config.API_KEY;
 let movie;
 let movieDiv;
+let card = document.querySelectorAll('.card');
 
 //Initial API call to get first 20 movies rendered on the page
 function getMovie() {
@@ -22,7 +23,6 @@ function getMovie() {
             changeMovies();
         });   
 }
-
 
 
 //Loop that saves 20 movies(maximum allowed) and creates html elements for them
@@ -63,7 +63,6 @@ function fetchAllMovie() {
         // console.log(parag);
         // console.log(div);   
    }
-   console.log(movieDiv);
    return movieDiv;
 }
 
@@ -72,8 +71,9 @@ function fetchAllMovie() {
 function changeMovies() {
     const div = document.getElementById('movie-append');
     div.innerHTML = '';
-    
     fetchAllMovie();
+    attachWatchLater();
+    removeFromLate();
 }
 
 
@@ -135,6 +135,36 @@ function createButtons() {
     previous.addEventListener('click', previousPage);
 }
 
+function attachWatchLater() {
+    const card = document.querySelectorAll('.card');
+    const favouriteMovies = document.querySelector('.favourite-movies');
+    const searchDiv = document.getElementById('movie-append');
+    card.forEach(card => {
+        card.addEventListener('click', (event) => {
+                //card.classList.remove('card');
+                card.classList.add('later');
+                card.parentNode.removeChild(card);
+                favouriteMovies.appendChild(card);
+                removeFromLate();
+    })
+})
 
+}
+
+function removeFromLate() {
+    const later = document.querySelectorAll('.later');
+    const favouriteMovies = document.querySelector('.favourite-movies');
+    const searchDiv = document.getElementById('movie-append');
+
+    later.forEach(later => {
+        later.addEventListener('click', (event) => {
+            later.classList.remove('later');
+            //later.classList.add('card');
+            later.parentNode.removeChild(later);
+            searchDiv.appendChild(later);
+        })
+    })
+}
 
 submitBtn.addEventListener('click', getMovie);
+card.addEventListener('click', attachWatchLater);

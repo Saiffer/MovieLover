@@ -1,15 +1,15 @@
 #movie-append {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 3fr 3fr 3fr 3fr;
     
 }
 
 .movies-block {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 9fr 3fr;
 }
 
-.card {
+.card, .later {
     margin: 50px;
     max-width: 400px; 
     min-height: 450px;
@@ -52,8 +52,8 @@
 }
 
 .search {
-    width: 100%;
-    position: relative;
+    width: 80%;
+    /* position: relative; */
     display: flex;
 }
 
@@ -86,7 +86,7 @@
 }
 
 .search-form {
-    margin-left: 300px;
+    margin-left: 500px;
     margin-top: 60px;
     margin-bottom: 0;
     margin-right: 0;
