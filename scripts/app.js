@@ -4,6 +4,7 @@ const userInput = document.querySelector('.search-movie');
 const pageBtn = document.querySelectorAll('.page-number');
 const myKey = config.API_KEY;
 let movie;
+let movieDiv;
 
 //Initial API call to get first 20 movies rendered on the page
 function getMovie() {
@@ -23,6 +24,7 @@ function getMovie() {
 }
 
 
+
 //Loop that saves 20 movies(maximum allowed) and creates html elements for them
 function fetchAllMovie() {
    for(let i = 0; i < movie.results.length; i++) {
@@ -35,29 +37,34 @@ function fetchAllMovie() {
         const movieVariable = movie.results[i].vote_average;
         const imgPoster = document.createElement('img');
         const imgPath = `http://image.tmdb.org/t/p/w200/${posterPath}`;
-        const movieRating = document.createElement('p');
+        let movieRating = document.createElement('p');
         
         divInner.classList.add('card');
         parag.classList.add('movieTitle');
         parag.textContent = `${movieTitle}`;
         if(posterPath === null) {
             imgPoster.src = '../img/NoPosterAvailable_placeholder_160x220.png';
+            imgPoster.classList.add('no-poster');
         } else {
             imgPoster.classList.add('poster-image');
             imgPoster.src = imgPath;
         }
         movieRating.classList.add('rating');
-        movieRating.textContent = `${movieVariable} ${movieReleaseDate}`;
+        let cardDesign = `<p>${movieVariable}</p>
+                          <p>${movieReleaseDate}</p>`;
+        movieRating.innerHTML = cardDesign;
 
-
-        divInner.appendChild(parag);
+        
         divInner.appendChild(imgPoster);
+        divInner.appendChild(parag);
         divInner.appendChild(movieRating);
         div.appendChild(divInner);
         
-        console.log(parag);
-        console.log(div);   
+        // console.log(parag);
+        // console.log(div);   
    }
+   console.log(movieDiv);
+   return movieDiv;
 }
 
 
