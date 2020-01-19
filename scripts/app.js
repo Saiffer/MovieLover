@@ -73,7 +73,7 @@ function changeMovies() {
     div.innerHTML = '';
     fetchAllMovie();
     attachWatchLater();
-    removeFromLate();
+    
 }
 
 
@@ -135,22 +135,25 @@ function createButtons() {
     previous.addEventListener('click', previousPage);
 }
 
+
+//Add to Watch Later
 function attachWatchLater() {
     const card = document.querySelectorAll('.card');
     const favouriteMovies = document.querySelector('.favourite-movies');
     const searchDiv = document.getElementById('movie-append');
     card.forEach(card => {
         card.addEventListener('click', (event) => {
-                //card.classList.remove('card');
+                card.classList.remove('card');
                 card.classList.add('later');
                 card.parentNode.removeChild(card);
                 favouriteMovies.appendChild(card);
+                
                 removeFromLate();
     })
 })
-
 }
 
+//Remove from Watch Later
 function removeFromLate() {
     const later = document.querySelectorAll('.later');
     const favouriteMovies = document.querySelector('.favourite-movies');
@@ -159,12 +162,12 @@ function removeFromLate() {
     later.forEach(later => {
         later.addEventListener('click', (event) => {
             later.classList.remove('later');
-            //later.classList.add('card');
+            later.classList.add('card');
             later.parentNode.removeChild(later);
             searchDiv.appendChild(later);
+            attachWatchLater();
         })
     })
 }
 
 submitBtn.addEventListener('click', getMovie);
-card.addEventListener('click', attachWatchLater);
