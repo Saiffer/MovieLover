@@ -33,9 +33,9 @@
     box-shadow:inset 0px -3px 7px 0px #29bbff;
 	border-radius:3px;
 	border: 1px solid #00B4CC;
-  background: #00B4CC;
-  text-align: center;
-  color: #fff;
+    background: #00B4CC;
+    text-align: center;
+    color: #fff;
 	display:inline-block;
 	cursor:pointer;
 	font-family:Arial;
@@ -51,33 +51,43 @@
 	background-color:#0688fa;
 }
 
+.header-block {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.watch-later__header {
+    margin-right: 12%;
+}
+
 .search {
-    width: 80%;
+    width: 30%%;
     /* position: relative; */
     display: flex;
 }
 
 .search-movie {
     width: 100%;
-  border: 3px solid #00B4CC;
-  border-right: none;
-  padding: 5px;
-  height: 20px;
-  border-radius: 5px 0 0 5px;
-  outline: none;
-  color: #9DBFAF;
+    border: 3px solid #00B4CC;
+    border-right: none;
+    padding: 5px;
+    height: 20px;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    color: #9DBFAF;
 }
 
 .submit-search-movie {
     width: 90px;
-  height: 36px;
-  border: 1px solid #00B4CC;
-  background: #00B4CC;
-  text-align: center;
-  color: #fff;
-  border-radius: 0 5px 5px 0;
-  cursor: pointer;
-  font-size: 20px;
+    height: 36px;
+    border: 1px solid #00B4CC;
+    background: #00B4CC;
+    text-align: center;
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 20px;
 }
 
 .submit-search-movie:hover {
@@ -86,12 +96,13 @@
 }
 
 .search-form {
-    margin-left: 500px;
-    margin-top: 60px;
-    margin-bottom: 0;
-    margin-right: 0;
     width: 45%;
-  transform: translate(-50%, -50%);
+}
+
+.search-form label {
+    font-family: 'Roboto';
+    font-weight: 700;
+    font-size: 2rem;
 }
 
 .no-poster {
@@ -104,3 +115,14 @@
     height: 300px;
 }
 
+/* .favourite-movies {
+    display: grid;
+    grid-template-columns: 6fr 6fr;
+    height: 50%;
+} */
+
+.watch-later__header h2 {
+    font-family: 'roboto';
+    font-weight: 700;
+    font-size: 2rem;
+}

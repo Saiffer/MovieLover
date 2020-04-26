@@ -129,8 +129,8 @@ function createButtons() {
     previous.type = 'button';
     next.value = 'NEXT';
     previous.value = 'PREVIOUS';
-    div.appendChild(next);
     div.appendChild(previous);
+    div.appendChild(next);
     next.addEventListener('click', nextPage);
     previous.addEventListener('click', previousPage);
 }
